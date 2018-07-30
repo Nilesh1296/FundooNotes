@@ -1,0 +1,31 @@
+<md-toolbar ng-style="toolbarcolor" class="md-toolbar-tools" style="position:fixed;background-color:#FFA500" >
+  <i class="material-icons" ng-click="toggleLeft()">&#xE5D2;</i>
+  <p> <strong>Fundoonotes        </strong> </p>
+  <div id="searchdiv">
+  <input id="search"type="text" placeholder="Search..">
+</div>
+
+<div class="iconbutton">
+<md-button class="md-primary md-icon-button">
+  <img class="logo-image" src="assets/baseline-refresh-24px.svg">
+</md-button>
+
+<md-button ng-click="GridView()" class="md-primary md-icon-button">
+  <img class="logo-image" src="assets/baseline-view_list-24px.svg">
+</md-button>
+
+<md-button class="md-primary md-icon-button">
+  <img class="logo-image" src="assets/baseline-apps-24px.svg">
+</md-button>
+
+<md-button class="md-primary md-icon-button">
+  <img class="logo-image" src="assets/baseline-notifications-24px.svg">
+</md-button>
+
+
+<md-button ng-click="sendToLogin()" class="md-primary md-icon-button">
+  <img class="logo-image" src="assets/baseline-account_circle-24px.svg">
+</md-button>
+</div>
+
+</md-toolbar>

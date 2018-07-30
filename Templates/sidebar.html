@@ -1,0 +1,23 @@
+
+<div id ="sideNavContainer" layout="column" >
+  <md-sidenav class="md-sidenav-left" class="md-sidenav-right" md-disable-backdrop id="rightSideNav" md-component-id="left" style="width:'200px'; position: 'fixed';">
+
+       <div class="sidebar-content">
+         <md-list-item><img class="logo-image" src="assets/note.svg">
+           <span flex="30"></span>Notes</md-list-item>
+        <md-list-item><img class="logo-image" src="assets/baseline-touch_app-24px.svg"><span flex="30"></span>Reminders</md-list-item>
+       </div>
+       <md-divider> </md-divider>
+       <div class="sidebar-content">
+         <md-list-item>Labels</md-list-item>
+         <md-list-item><img class="logo-image" src="assets/baseline-label-24px.svg"><span flex="30"></span></md-list-item>
+        <md-list-item><img class="logo-image" src="assets/baseline-add-24px.svg"><span flex="30"></span>Create new label</md-list-item>
+       </div>
+       <md-divider> </md-divider>
+       <div class="sidebar-content">
+         <md-list-item  ng-click="ArchivePage(); ChangeColor()"><img class="logo-image" src="assets/baseline-archive-24px.svg"><span flex="30"></span>Archive</md-list-item>
+        <md-list-item  ng-click="TrashPage()"><img class="logo-image" src="assets/baseline-delete-24px.svg"><span flex="30"></span>Trash</md-list-item>
+       </div>
+
+   </md-sidenav>
+ </div>

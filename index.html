@@ -1,0 +1,34 @@
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <!-- Angular Files -->
+  <link rel="stylesheet" href="Css/style.css" >
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/angular-messages/angular-messages.min.js" charset="utf-8"></script>
+  <script src="bower_components/angular-animate/angular-animate.min.js" charset="utf-8"></script>
+  <script src="bower_components/angular-aria/angular-aria.min.js" charset="utf-8"></script>
+  <script src="bower_components/angular-material/angular-material.min.js" charset="utf-8"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js" charset="utf-8"></script>
+
+<!-- config -->
+  <script src="app.js" charset="utf-8"></script>
+  <script src="Services/UserService.js" charset="utf-8"></script>
+  <script src="Controller/loginController.js" charset="utf-8"></script>
+  <script src="Controller/registrationController.js" charset="utf-8"></script>
+  <script src="Controller/homeController.js" charset="utf-8"></script>
+    <script src="Controller/forgetpasswordcontroller.js" charset="utf-8"></script>
+    <script src="Controller/ResetController.js" charset="utf-8"></script>
+    <script src="directive/navbar.js"></script>
+    <script src="directive/sidebar.js"></script>
+    <script src="Controller/dashcontroller.js"></script>
+    <script src="Services/NoteService.js" charset="utf-8"></script>
+
+  </head>
+  <body ng-app="myApp">
+      <ui-view></ui-view>
+    </body>
+</html>

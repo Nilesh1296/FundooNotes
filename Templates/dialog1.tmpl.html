@@ -1,0 +1,37 @@
+<md-card  md-disable-backdrop >
+  <div style="height:21%; width:572px;">
+        <input id="title" ng-model="note.title" type="text">
+
+  </div>
+  <div style="height:79px; width:572px; ">
+    <input id="note"  ng-model="note.description" type="text" placeholder="Take a note" style="width: 568px; height: 95%;">
+  </div>
+  <div>
+    <md-button class="md-primary md-icon-button">
+      <img class="logo-image" src="assets/baseline-touch_app-24px.svg">
+    </md-button>
+    <md-button class="md-primary md-icon-button">
+      <img class="logo-image" src="assets/baseline-person_add-24px.svg">
+    </md-button>
+    <md-button class="md-primary md-icon-button">
+      <img class="logo-image" src="assets/baseline-palette-24px (1).svg">
+    </md-button>
+    <md-button class="md-primary md-icon-button">
+      <img class="logo-image" src="assets/baseline-insert_photo-24px.svg">
+    </md-button>
+    <md-button class="md-primary md-icon-button">
+      <img class="logo-image" src="assets/baseline-archive-24px.svg">
+    </md-button>
+
+      <md-menu>
+      <md-button class="md-primary md-icon-button" ng-click="$mdMenu.open($event)">
+        <img class="logo-image" src="assets/baseline-more_vert-24px.svg">
+      </md-button>
+<md-menu-content>
+<md-menu-item><md-button ng-click="DeleteNote(x)">Delete note</md-button></md-menu-item>
+<md-menu-item><md-button ng-click="AddLabel()">Add label</md-button></md-menu-item>
+</md-menu-content>
+</md-menu>
+<md-button style="float:right" ng-click="Update(note)" >Close</md-button>
+  </div>
+</md-card>

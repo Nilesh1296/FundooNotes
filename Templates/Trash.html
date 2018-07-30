@@ -1,0 +1,27 @@
+<div  ng-init="getAllNotes()" layout-align="center end" layout="row" style="margin-top:200px; margin-left:350px;">
+  <div layout="row" layout-wrap>
+     <md-card ng-repeat="x in noteArray | filter:{ trash:true }" style="height: 126px;width: 295px;" md-disable-backdrop >
+       <div>
+      {{x.title}}
+       </div>
+       <div>
+         {{x.description}}
+       </div>
+       <div>
+
+           <md-menu>
+           <md-button class="md-primary md-icon-button" ng-click="$mdMenu.open($event)">
+             <img class="logo-image" src="assets/baseline-more_vert-24px.svg">
+           </md-button>
+ <md-menu-content>
+   <md-menu-item><md-button ng-click="Delete(x)">Delete</md-button></md-menu-item>
+    <md-menu-item><md-button ng-click="Restore(x)">Restore</md-button></md-menu-item>
+ </md-menu-content>
+</md-menu>
+
+        </md-menu>
+       </div>
+    </md-card>
+  </div>
+
+</div>

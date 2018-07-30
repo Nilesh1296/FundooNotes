@@ -1,0 +1,151 @@
+.loginbox
+{
+height:100%;
+width:100%;
+border:1px solid black;
+font-family: sans-serif;
+}
+.Header
+{
+  background-color: blue;
+  height:18%;
+  color:#7FFF00;
+  text-align: center;
+  margin-top: 30px;
+}
+.Registrationbox
+{
+height:100%;
+width:100%;
+border:1px solid black;
+font-family: sans-serif;
+}
+.Registrationform
+{
+  width:400px;
+  height:600px;
+  text-align: center;
+  background-color: lightblue;
+  margin : 0 auto;
+  margin-top: 100px;
+  margin-bottom: 200px;
+  margin-right: 150px;
+  margin-left: 450px;
+}
+.loginform
+{
+  width:400px;
+  height:400px;
+  text-align: center;
+  background-color: lightblue;
+  margin : 0 auto;
+  margin-top: 150px;
+  margin-bottom: 200px;
+  margin-right: 150px;
+  margin-left: 450px;
+}
+#search
+{
+    margin:0;
+  	padding:0;
+    border: none;
+  width: 90%;
+  line-height: 19px;
+  padding: 11px 0;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px #c4c4c4 inset;
+  text-align: left;
+  font-size: 14px;
+  font-family: inherit;
+  color: #738289;
+  font-weight: bold;
+  outline: none;
+  text-indent: 40px;
+  margin-left: 40px;
+}
+.sidebar-content{
+  text-transform: initial;
+font-size: 14px;
+}
+.md-sidenav-left, md-sidenav{
+margin-top: 64px;
+}
+.iconbutton
+{
+  width:30%;
+}
+#searchdiv
+{
+  width:75%;
+}
+.md-primary md-icon-button
+{
+  margin-left: 5px;
+  margin-right: 5px;
+}
+#searchbox{
+  height: 50px;
+width: 600px;
+background-color: white;
+margin-left: -48px;
+margin-top: -118px;
+}
+#inner{
+  margin: 165px;
+margin-left: -107px;
+margin-top: 49px;
+}
+.{
+  margin:0px
+  padding:0px
+}
+#show
+{
+  width: 572px;
+  height: 165px;
+  border:1px solid black;
+  margin-top: 116px;
+margin-left: 413px;
+}
+#title{
+  width:100%;
+  height:100%;
+
+}
+.md-button {
+  padding: 0 6px 0 6px;
+  margin: 6px 8px 6px 8px;
+  min-width: 88px;
+  border-radius: 3px;
+  font-size: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration:none;
+  border: none;
+  outline: none;
+}
+/* .getnotes{
+  height: 252px;
+    width: 252px;
+    border: 1px dotted black;
+    margin: auto;
+} */
+/* #searchbox
+{
+    width: 100%;
+    margin:0;
+    padding:0;
+    border: none;
+  line-height: 19px;
+  padding: 11px 0;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px #c4c4c4 inset;
+  text-align: left;
+  font-size: 14px;
+  font-family: inherit;
+  color: #738289;
+  font-weight: bold;
+  outline: none;
+  text-indent: 40px;
+  margin-left: 200px;
+} */

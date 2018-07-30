@@ -1,0 +1,217 @@
+<div ng-show="!showcard">
+  <div id="searchdiv" layout-align="center center" layout="row" style="margin-top: 100px; margin-left:230px;">
+
+    <input id="searchbox" ng-click="showcard=true" style="height:50px; width:600px;background-color:white;" type="text" placeholder="Take an note...">
+    <div id="inner">
+      <md-button class="md-primary md-icon-button">
+        <img class="logo-image" src="assets/baseline-view_list-24px.svg">
+      </md-button>
+      <md-button class="md-primary md-icon-button">
+        <img class="logo-image" src="assets/baseline-insert_photo-24px.svg">
+      </md-button>
+    </div>
+  </div>
+</div>
+
+<div id="show" ng-show="showcard">
+  <div style="height:21%; width:572px;">
+    <input id="title" ng-model="title" type="text" placeholder="Title">
+  </div>
+  <div style="height:79px; width:572px; ">
+    <input id="note" ng-model="description" type="text" placeholder="Take a note" style="width: 568px; height: 95%;">
+  </div>
+  <div style="height:47px; width:572px;">
+    <md-button class="md-primary md-icon-button">
+      <img class="logo-image" src="assets/baseline-touch_app-24px.svg">
+    </md-button>
+    <md-button  class="md-primary md-icon-button">
+      <img class="logo-image" src="assets/baseline-person_add-24px.svg">
+    </md-button>
+    <md-button class="md-primary md-icon-button">
+      <img class="logo-image" src="assets/baseline-insert_photo-24px.svg">
+    </md-button>
+    <md-button class="md-primary md-icon-button">
+      <img class="logo-image" src="assets/baseline-archive-24px.svg">
+    </md-button>
+    <md-button class="md-primary md-icon-button">
+      <img class="logo-image" src="assets/baseline-more_vert-24px.svg">
+    </md-button>
+    <md-button ng-click="showcard=false; addNote()" style="margin-left: 130px;">close</md-button>
+  </div>
+</div>
+
+ <div ng-init="getAllNotes()" layout-align="center end" layout="row" style="margin-top: 20px; margin-left:350px;">
+     <h3>Others</h3>
+  <div layout="row" layout-wrap>
+    <md-card style="width:30%;background-color:{{x.colour}};" class="card" ng-repeat="x in noteArray | filter:{ trash:false }|filter:{archive:false}|filter:{pin:false}">
+
+        <div>
+          <p  ng-click="showPrompt($event,x)">{{x.title}}</p>
+        </div>
+<span>
+        <md-button ng-click="Pin(x)" style="margin-left:250px;margin-top: -47px;" class="md-primary md-icon-button">
+          <img class="logo-image" src="assets/pin.svg">
+        </md-button>
+</span>
+      <p ng-click="showPrompt($event,x)">
+        {{x.description}}
+      </p>
+        <div>
+                  <md-button class="md-primary md-icon-button">
+                    <img class="logo-image" src="assets/baseline-touch_app-24px.svg">
+                  </md-button>
+                  <md-button class="md-primary md-icon-button">
+                    <img class="logo-image" src="assets/baseline-person_add-24px.svg">
+                  </md-button>
+                  <md-menu>
+                  <md-button  ng-mouseenter="$mdMenu.open()"  class="md-primary md-icon-button">
+                    <img class="logo-image" src="assets/baseline-palette-24px (1).svg">
+                  </md-button>
+                  <md-menu-content ng-mouseleave="$mdMenu.close()" >
+                    <md-menu-item  ng-repeat="item in color">
+                    <md-button ng-repeat="obj in item" style="background-color:{{obj.value}};" ng-click ="changeColor(obj.value,x)">
+                  </md-menu-content>
+                </md-menu>
+                <md-button class="md-primary md-icon-button">
+                  <img class="logo-image" src="assets/baseline-insert_photo-24px.svg">
+                </md-button>
+                <md-button ng-click="Archieve(x)" class="md-primary md-icon-button">
+                  <img class="logo-image" src="assets/baseline-archive-24px.svg">
+                </md-button>
+                <md-menu>
+                  <md-button class="md-primary md-icon-button" ng-click="$mdMenu.open($event)">
+                    <img class="logo-image" src="assets/baseline-more_vert-24px.svg">
+                  </md-button>
+                  <md-menu-content>
+                    <md-menu-item>
+                      <md-button ng-click="DeleteNote(x)">Delete note</md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                      <md-button ng-click="AddLabel()">Add label</md-button>
+                    </md-menu-item>
+                  </md-menu-content>
+                </md-menu>
+        </div>
+</md-card>
+</div>
+</div>
+
+<div ng-init="getAllNotes()" layout-align="center end" layout="row" style="margin-top: 20px; margin-left:350px;">
+    <h3>Pinned Notes</h3>
+ <div layout="row" layout-wrap>
+
+   <md-card style="width:30%;background-color:{{x.colour}};" id="card" ng-repeat="x in noteArray | filter:{ trash:false }|filter:{archive:false}|filter:{pin:true}">
+
+       <div>
+         <p  ng-click="showPrompt($event,x)">{{x.title}}</p>
+       </div>
+<span>
+       <md-button ng-click="Pin(x)" style="margin-left:250px;margin-top: -47px;" class="md-primary md-icon-button">
+         <img class="logo-image" src="assets/pin.svg">
+       </md-button>
+</span>
+     <p ng-click="showPrompt($event,x)">
+       {{x.description}}
+     </p>
+       <div>
+                 <md-button class="md-primary md-icon-button">
+                   <img class="logo-image" src="assets/baseline-touch_app-24px.svg">
+                 </md-button>
+                 <md-button class="md-primary md-icon-button">
+                   <img class="logo-image" src="assets/baseline-person_add-24px.svg">
+                 </md-button>
+                 <md-menu>
+                 <md-button  ng-mouseenter="$mdMenu.open()"  class="md-primary md-icon-button">
+                   <img class="logo-image" src="assets/baseline-palette-24px (1).svg">
+                 </md-button>
+                 <md-menu-content ng-mouseleave="$mdMenu.close()" >
+                   <md-menu-item  ng-repeat="item in color">
+                   <md-button ng-repeat="obj in item" style="background-color:{{obj.value}};" ng-click ="changeColor(obj.value,x)">
+                 </md-menu-content>
+               </md-menu>
+               <md-button class="md-primary md-icon-button">
+                 <img class="logo-image" src="assets/baseline-insert_photo-24px.svg">
+               </md-button>
+               <md-button ng-click="Archieve(x)" class="md-primary md-icon-button">
+                 <img class="logo-image" src="assets/baseline-archive-24px.svg">
+               </md-button>
+               <md-menu>
+                 <md-button class="md-primary md-icon-button" ng-click="$mdMenu.open($event)">
+                   <img class="logo-image" src="assets/baseline-more_vert-24px.svg">
+                 </md-button>
+                 <md-menu-content>
+                   <md-menu-item>
+                     <md-button ng-click="DeleteNote(x)">Delete note</md-button>
+                   </md-menu-item>
+                   <md-menu-item>
+                     <md-button ng-click="AddLabel()">Add label</md-button>
+                   </md-menu-item>
+                 </md-menu-content>
+               </md-menu>
+       </div>
+</md-card>
+</div>
+</div>
+<!-- <div ng-init="getAllNotes()" class = "getnotes" layout-align="center end" layout="row">
+  <div layout="row" layout-wrap>
+    <md-card style="height:200px; width:300px; "ng-click="showPrompt($event,x)" style="background-color:{{x.colour}}" ng-repeat="x in noteArray | filter:{ trash:false }|filter:{archive:false}" md-disable-backdrop>
+        <div style="height: 54px;width:300px;">
+        {{x.title}}
+        <md-button ng-click="Pin(x)" style="margin-left: 203px;margin-top: 7px;"class="md-primary md-icon-button">
+          <img class="logo-image" src="assets/baseline-vertical_align_top-24px (1).svg">
+        </md-button>
+      </div>
+        <div style="height: 84px;width: 100%;">
+            {{x.description}}
+        </div>
+        <div style="height: -25px;height: 28%;width: 100%;">
+          <div style="height: 100%;width: 16.5%;margin: 0px -1px;">
+            <md-button class="md-primary md-icon-button">
+                      <img class="logo-image" src="assets/baseline-touch_app-24px.svg">
+                    </md-button>
+          </div>
+          <div style="height: 100%;width: 16.5%;margin: -59px 49px;">
+            <md-button class="md-primary md-icon-button">
+              <img class="logo-image" src="assets/baseline-person_add-24px.svg">
+            </md-button>
+          </div>
+          <div style="height: 100%;width: 16.5%;margin: -58px 99px;">
+            <md-menu>
+            <md-button  ng-mouseenter="$mdMenu.open($event)"  class="md-primary md-icon-button">
+              <img class="logo-image" src="assets/baseline-palette-24px (1).svg">
+            </md-button>
+            <md-menu-content ng-mouseleave="$mdMenu.close()" >
+              <md-menu-item  ng-repeat="item in color">
+              <md-button  style="background-color:{{obj.value}};" ng-click ="changeColor(obj.value,x);" ng-repeat="obj in item">
+            </md-menu-content>
+          </md-menu>
+          </div>
+          <div style="height: 100%;width: 16.5%;margin: -57px 149px;">
+            <md-button class="md-primary md-icon-button">
+              <img class="logo-image" src="assets/baseline-insert_photo-24px.svg">
+            </md-button>
+          </div>
+          <div style="height: 100%;width: 16.5%;margin: -57px 199px;">
+            <md-button ng-click="Archieve(x)" class="md-primary md-icon-button">
+              <img class="logo-image" src="assets/baseline-archive-24px.svg">
+            </md-button>
+          </div>
+          <div style="height: 100%;width: 16.5%;margin: -56px 250px;">
+            <md-menu>
+              <md-button class="md-primary md-icon-button" ng-click="$mdMenu.open($event)">
+                <img class="logo-image" src="assets/baseline-more_vert-24px.svg">
+              </md-button>
+              <md-menu-content>
+                <md-menu-item>
+                  <md-button ng-click="DeleteNote(x)">Delete note</md-button>
+                </md-menu-item>
+                <md-menu-item>
+                  <md-button ng-click="AddLabel()">Add label</md-button>
+                </md-menu-item>
+              </md-menu-content>
+            </md-menu>
+          </div>
+        </div>
+    </md-card>
+  </div>
+</div> -->
